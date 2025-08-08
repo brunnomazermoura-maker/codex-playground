@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trainerly Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Trainerly</h1>
+    <select id="goalSelect" aria-label="Selecionar objetivo">
+      <option value="hipertrofia">Hipertrofia</option>
+      <option value="corrida">Corrida</option>
+      <option value="reabilitacao">Reabilitação</option>
+      <option value="emagrecimento">Emagrecimento</option>
+    </select>
+  </header>
+
+  <main>
+    <section id="dashboard" class="tab active">
+      <h2>Progresso</h2>
+      <div id="progressChart" class="chart"></div>
+
+      <h2>Badges</h2>
+      <div id="badges" class="badges"></div>
+
+      <h2>Profissionais recomendados</h2>
+      <div id="proRecommendations" class="cards"></div>
+    </section>
+
+    <section id="treinos" class="tab">
+      <h2>Plano semanal</h2>
+      <div id="workoutPlan" class="cards"></div>
+    </section>
+
+    <section id="profissionais" class="tab">
+      <h2>Profissionais</h2>
+      <div class="filters">
+        <select id="specialtyFilter">
+          <option value="">Todas especialidades</option>
+        </select>
+        <input type="text" id="nameSearch" placeholder="Buscar por nome">
+      </div>
+      <div id="professionalList" class="cards"></div>
+    </section>
+
+    <section id="desafios" class="tab">
+      <h2>Desafios</h2>
+      <div id="challengeList" class="cards"></div>
+    </section>
+  </main>
+
+  <nav class="tabs-nav">
+    <button data-tab="dashboard" class="active">Dashboard</button>
+    <button data-tab="treinos">Treinos</button>
+    <button data-tab="profissionais">Profissionais</button>
+    <button data-tab="desafios">Desafios</button>
+  </nav>
+
+  <div id="scheduleModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h3>Agendar sessão</h3>
+      <label>Data:
+        <input type="date" id="scheduleDate">
+      </label>
+      <label>Hora:
+        <input type="time" id="scheduleTime">
+      </label>
+      <label>Formato:
+        <select id="scheduleFormat">
+          <option value="presencial">Presencial</option>
+          <option value="online">Online</option>
+        </select>
+      </label>
+      <div class="modal-actions">
+        <button id="saveSchedule">Salvar</button>
+        <button id="closeModal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="demoOverlay" class="tooltip hidden">
+    <div class="tooltip-box">
+      <p id="tooltipText"></p>
+      <button id="tooltipNext">Próximo</button>
+      <button id="tooltipSkip">Fechar</button>
+    </div>
+  </div>
+
+  <footer>
+    <small>Protótipo visual – sem persistência.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
